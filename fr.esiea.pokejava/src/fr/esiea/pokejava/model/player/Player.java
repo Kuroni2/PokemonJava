@@ -1,6 +1,7 @@
 package fr.esiea.pokejava.model.player;
 
 import fr.esiea.pokejava.model.monster.Monster;
+import fr.esiea.pokejava.model.objects.Items;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,13 +9,11 @@ import java.util.Objects;
 
 public class Player {
     private int number;
-    private String nom;
     private HashMap<String,Monster> team;
-    private List<Objects> bag;
+    private List<Items> bag;
 
-    public Player(int number,String nom,HashMap<String,Monster> team, List<Objects> bag) {
+    public Player(int number,HashMap<String,Monster> team, List<Items> bag) {
         this.number = number;
-        this.nom = nom;
         this.team = team;
         this.bag = bag;
     }
@@ -35,34 +34,34 @@ public class Player {
         this.team = team;
     }
 
-    public List<Objects> getBag() {
+    public List<Items> getBag() {
         return bag;
     }
 
-    public void setBag(List<Objects> bag) {
+    public void setBag(List<Items> bag) {
         this.bag = bag;
     }
 
     public void addTeam(Monster pokemon){
     }
 
-    void displayMonsters() {
-        System.out.println("Monstres de " + name + ":");
-        for (Monster monster : monsters) {
-            monster.displayStatus();
+    public void displayMonsters() {
+        System.out.println("Votre équipe est composé : ");
+        for (Monster monster : team.values()) {
+            System.out.println(monster);
         }
     }
 
-    void displayItems() {
-        System.out.println("Objets de " + name + ":");
-        for (Item item : items) {
-            System.out.println(item.name);
+   public void displayItems() {
+        System.out.println("Objets de player " + number + " :");
+        for (Items item : bag) {
+            System.out.println(item.getNom());
         }
     }
 
-    boolean isDefeated() {
-        for (Monster monster : monsters) {
-            if (monster.health > 0) {
+   public boolean isDefeated() {
+        for (Monster monster : team.values()) {
+            if (monster.getHp() > 0) {
                 return false;
             }
         }

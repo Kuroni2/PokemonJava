@@ -1,7 +1,7 @@
 package fr.esiea.pokejava.model.objects;
 
 
-public class Potion extends Objects {
+public class Potion extends Items {
     int pointsDeVie;
     int bonusAttaque;
 

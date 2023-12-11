@@ -1,6 +1,6 @@
 package fr.esiea.pokejava.model.objects;
 
-public class Medicament extends Objects {
+public class Medicament extends Items {
     String effet;
 
     public Medicament(String nom, String effet) {
