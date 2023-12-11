@@ -1,4 +1,4 @@
-package fr.esiea.pokejava.model;
+package fr.esiea.pokejava.model.monster;
 
 public class WaterMonster extends Monster{
 
