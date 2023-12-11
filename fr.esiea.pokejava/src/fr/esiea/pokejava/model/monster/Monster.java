@@ -19,6 +19,13 @@ public abstract class Monster {
         this.defense = defense;
         this.speed = speed;
     }
+    public Monster(Monster monster){
+        this.name = monster.name;
+        this.hp = monster.hp;
+        this.attack = monster.attack;
+        this.defense = monster.defense;
+        this.speed = monster.speed;
+    }
 
     public String getName() {
         return name;

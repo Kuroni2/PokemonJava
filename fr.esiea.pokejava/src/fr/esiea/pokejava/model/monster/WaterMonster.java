@@ -9,4 +9,10 @@ public class WaterMonster extends Monster{
     public WaterMonster(String name, int hp, int attack, int defense, int speed) {
         super(name, hp, attack, defense, speed);
     }
+
+    public WaterMonster(WaterMonster pokemon) {
+        super(pokemon);
+        this.fall = pokemon.fall;
+        this.flood = pokemon.flood;
+    }
 }
