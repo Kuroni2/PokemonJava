@@ -2,6 +2,8 @@ package fr.esiea.pokejava.game;
 
 import fr.esiea.pokejava.model.game.EndState;
 import fr.esiea.pokejava.model.game.GameState;
+import fr.esiea.pokejava.model.game.SelectState;
+import fr.esiea.pokejava.model.monster.FireMonster;
 import fr.esiea.pokejava.model.monster.Monster;
 import fr.esiea.pokejava.parser.MonsterParser;
 
@@ -16,7 +18,10 @@ public class Game {
     private static final MonsterParser mParser = new MonsterParser();
 
     public static void main(String[] args) {
-        Game.mParser.parse("../config/pokemon.txt");
+        Game.pokedex.add(new FireMonster("Salamèche",20,15,15,15));
+        Game.pokedex.add(new FireMonster("Salamèche",20,15,15,15));
+        Game.pokedex.add(new FireMonster("Salamèche",20,15,15,15));
+        //Game.mParser.parse();
         Scanner sc = new Scanner(System.in);
         System.out.println(" |  __ \\    | |           | |                  \n" +
                 " | |__) |__ | | _____     | | __ ___   ____ _  \n" +
@@ -27,8 +32,9 @@ public class Game {
                 "                                         ");
         while(!(Game.state instanceof EndState)){
            String result =  sc.nextLine();
-            if(result.equals("end")){
-                Game.state = new EndState();
+            switch (result){
+                case "end" -> Game.state = new EndState();
+                case "start" -> Game.state = new SelectState();
             }
         }
     }
