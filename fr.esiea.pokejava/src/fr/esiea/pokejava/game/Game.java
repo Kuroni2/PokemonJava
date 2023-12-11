@@ -101,7 +101,7 @@ public class Game {
                     switchMonster(player1, scanner);
                     break;
                 case 2:
-                    useObjects(player1, scanner);
+                    useItems(player1, scanner);
                     break;
                 case 3:
                     attack(player1, player2);
@@ -138,7 +138,7 @@ public class Game {
         System.out.println("Joueur" + player.getNumber() + " a changé de monstre.");
     }
 
-    public static void useObjects(Player player, Scanner scanner) {
+    public static void useItems(Player player, Scanner scanner) {
         // Logique d'utilisation d'un objet
         System.out.println("Joueur" + player.getNumber() + " a utilisé un objet.");
     }
