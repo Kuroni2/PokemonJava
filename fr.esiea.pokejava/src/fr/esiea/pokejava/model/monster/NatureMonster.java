@@ -1,5 +1,7 @@
 package fr.esiea.pokejava.model.monster;
 
+import java.util.Map;
+
 public class NatureMonster  extends Monster{
 
     private double heal;
@@ -10,5 +12,9 @@ public class NatureMonster  extends Monster{
     public NatureMonster(NatureMonster pokemon) {
         super(pokemon);
         this.heal = pokemon.heal;
+    }
+    public NatureMonster(Map<String,String> data){
+        super(data);
+        this.heal = Double.parseDouble(data.get("Heal"));
     }
 }

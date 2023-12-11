@@ -1,5 +1,7 @@
 package fr.esiea.pokejava.model.monster;
 
+import java.util.Map;
+
 public class WaterMonster extends Monster{
 
     private double flood;
@@ -14,5 +16,10 @@ public class WaterMonster extends Monster{
         super(pokemon);
         this.fall = pokemon.fall;
         this.flood = pokemon.flood;
+    }
+    public WaterMonster(Map<String,String> data){
+        super(data);
+        this.flood = Double.parseDouble(data.get("Flood"));
+        this.fall = Double.parseDouble(data.get("Fall"));
     }
 }

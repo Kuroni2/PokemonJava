@@ -1,19 +1,25 @@
 package fr.esiea.pokejava.model.attack;
 
-public class Attack {
+import java.util.Map;
+
+public abstract class Attack {
 
     private String name;
-    private String type;
     private int power;
     private int nbUse;
     private double fail;
 
-    public Attack(String name, String type, int power, int nbUse, double fail) {
+    public Attack(String name,  int power, int nbUse, double fail) {
         this.name = name;
-        this.type = type;
         this.power = power;
         this.nbUse = nbUse;
         this.fail = fail;
+    }
+    public Attack(Map<String, String> data) {
+        this.name = data.get("Name");
+        this.power = Integer.parseInt(data.get("Power"));
+        this.nbUse = Integer.parseInt(data.get("NbUse"));
+        this.fail = Double.parseDouble(data.get("Fail"));
     }
 
     public String getName() {
@@ -22,14 +28,6 @@ public class Attack {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public int getPower() {
@@ -55,4 +53,5 @@ public class Attack {
     public void setFail(double fail) {
         this.fail = fail;
     }
+
 }

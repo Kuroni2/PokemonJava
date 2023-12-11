@@ -1,5 +1,7 @@
 package fr.esiea.pokejava.model.monster;
 
+import java.util.Map;
+
 public class EarthMonster  extends Monster{
 
     private double hide;
@@ -11,4 +13,10 @@ public class EarthMonster  extends Monster{
         super(monster);
         this.hide = monster.hide;
     }
+    public EarthMonster(Map<String,String> data){
+        super(data);
+        this.hide = Double.parseDouble(data.get("Hide"));
+    }
+
+
 }

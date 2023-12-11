@@ -17,3 +17,13 @@ Defense 85 116
 Flood 0.25
 Fall 0.35
 EndMonster
+Monster
+Name Bulbizarre
+Type Plant
+HP 120 152
+Speed 58 106
+Attack 62 101
+Defense 62 101
+Heal 0.10
+HealStatus 0.10
+EndMonster

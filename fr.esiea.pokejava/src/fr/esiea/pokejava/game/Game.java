@@ -1,12 +1,12 @@
 package fr.esiea.pokejava.game;
 
+import fr.esiea.pokejava.model.attack.Attack;
 import fr.esiea.pokejava.model.monster.*;
 import fr.esiea.pokejava.model.player.Player;
 import fr.esiea.pokejava.parser.MonsterParser;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Scanner;
 
 public class Game {
@@ -14,14 +14,13 @@ public class Game {
     public static Player player2 = new Player(2,new HashMap<>(),new ArrayList<>());
 
     public static HashMap<String,Monster> pokedex = new HashMap<>();
+    public static HashMap<String, Attack> attacks = new HashMap<>();
 
     private static final MonsterParser mParser = new MonsterParser();
 
     public static void main(String[] args) {
-        pokedex.put("Salamèche",new FireMonster("Salamèche",20,15,15,15));
-        pokedex.put("Carapuce",new WaterMonster("Carapuce",20,15,15,15));
-        pokedex.put("Herbizarre",new PlantMonster("Herbizarre",20,15,15,15));
-        //Game.mParser.parse();
+        String userDir = System.getProperty("user.dir");
+        System.out.println(userDir);
         Scanner sc = new Scanner(System.in);
         System.out.println(" |  __ \\    | |           | |                  \n" +
                 " | |__) |__ | | _____     | | __ ___   ____ _  \n" +
@@ -37,14 +36,8 @@ public class Game {
 
     }
     public static void init(){
-        pokedex.put("Salamèche",new FireMonster("Salamèche",20,15,15,15));
-        pokedex.put("Carapuce",new WaterMonster("Carapuce",20,15,15,15));
-        pokedex.put("Herbizarre",new PlantMonster("Herbizarre",20,15,15,15));
+        mParser.parse();
 
-//        for (Monster monster :
-//                Game.pokedex) {
-//            pokenames.put(monster.getName(), monster);
-//        }
     }
 
     public static void selectTeam(Player player){
@@ -86,7 +79,7 @@ public class Game {
 
             for (Monster monster:
                     player.getTeam().values()) {
-                System.out.println(monster.getName());
+                System.out.println(monster);
             }
         }
 
