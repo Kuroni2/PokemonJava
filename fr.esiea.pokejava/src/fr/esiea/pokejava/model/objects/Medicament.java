@@ -1,6 +1,6 @@
 package fr.esiea.pokejava.model.objects;
 
-public class Medicament extends Objet {
+public class Medicament extends Objects {
     String effet;
 
     public Medicament(String nom, String effet) {
@@ -9,7 +9,7 @@ public class Medicament extends Objet {
     }
 
     @Override
-    void utiliser() {
+    public void utiliser() {
         // Implémentation spécifique de l'effet du médicament
         System.out.println("Le médicament '" + nom + "' a été utilisé.");
         System.out.println("Effet : " + effet);

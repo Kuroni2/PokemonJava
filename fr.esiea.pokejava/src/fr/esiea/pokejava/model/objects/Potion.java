@@ -1,7 +1,7 @@
 package fr.esiea.pokejava.model.objects;
 
 
-public class Potion extends Objet {
+public class Potion extends Objects {
     int pointsDeVie;
     int bonusAttaque;
 
@@ -11,8 +11,7 @@ public class Potion extends Objet {
         this.bonusAttaque = bonusAttaque;
     }
 
-    @Override
-    void utiliser() {
+    public void utiliser() {
         // Implémentation spécifique de l'effet de la potion
         System.out.println("La potion '" + nom + "' a été utilisée.");
         System.out.println("Effet : Régénération de " + pointsDeVie + " points de vie");
