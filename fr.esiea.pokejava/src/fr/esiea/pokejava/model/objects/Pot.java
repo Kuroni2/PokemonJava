@@ -1,22 +1,22 @@
 package fr.esiea.pokejava.model.objects;
 
-public class Pot {
 
-    def __init__(self, name, effect):
-        self.name = name
-        self.effect = effect
+public class Potion extends Objet {
+    int pointsDeVie;
+    int bonusAttaque;
 
-    def use(self, target):
-        print(f"Utilisation de la potion {self.name} sur {target.name}")
-        self.effect(target)
+    public Potion(String nom, int pointsDeVie, int bonusAttaque) {
+        super(nom);
+        this.pointsDeVie = pointsDeVie;
+        this.bonusAttaque = bonusAttaque;
+    }
 
-# Création d'un monstre
-dragon = Monster("Dragon", 50, 10)
-        
-# Utilisation d'objets sur le monstre
-dragon.display_status()
-health_potion.use(dragon)
-attack_buff_potion.use(dragon)
-burn_cure_medicament.use(dragon)
-dragon.display_status()
+    @Override
+    void utiliser() {
+        // Implémentation spécifique de l'effet de la potion
+        System.out.println("La potion '" + nom + "' a été utilisée.");
+        System.out.println("Effet : Régénération de " + pointsDeVie + " points de vie");
+        System.out.println("Effet : Augmentation de l'attaque de " + bonusAttaque);
+        // Logique de mise à jour des caractéristiques du monstre
+    }
 }
