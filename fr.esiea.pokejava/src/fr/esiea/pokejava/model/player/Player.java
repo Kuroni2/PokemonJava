@@ -8,11 +8,13 @@ import java.util.Objects;
 
 public class Player {
     private int number;
+    private String nom;
     private HashMap<String,Monster> team;
     private List<Objects> bag;
 
-    public Player(int number,HashMap<String,Monster> team, List<Objects> bag) {
+    public Player(int number,String nom,HashMap<String,Monster> team, List<Objects> bag) {
         this.number = number;
+        this.nom = nom;
         this.team = team;
         this.bag = bag;
     }
@@ -42,5 +44,28 @@ public class Player {
     }
 
     public void addTeam(Monster pokemon){
+    }
+
+    void displayMonsters() {
+        System.out.println("Monstres de " + name + ":");
+        for (Monster monster : monsters) {
+            monster.displayStatus();
+        }
+    }
+
+    void displayItems() {
+        System.out.println("Objets de " + name + ":");
+        for (Item item : items) {
+            System.out.println(item.name);
+        }
+    }
+
+    boolean isDefeated() {
+        for (Monster monster : monsters) {
+            if (monster.health > 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }

@@ -70,4 +70,15 @@ public abstract class Monster {
     public void setSpeed(int speed) {
         this.speed = speed;
     }
+
+    public void displayStatus() {
+        System.out.println(name + ": Vie - " + health + ", Attaque - " + attack + ", Vitesse - " + speed);
+    }
+
+    public void takeDamage(int damage) {
+        health -= damage;
+        if (health < 0) {
+            health = 0;
+        }
+    }
 }
