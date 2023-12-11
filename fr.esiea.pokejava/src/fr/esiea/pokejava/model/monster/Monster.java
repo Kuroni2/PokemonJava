@@ -1,5 +1,7 @@
 package fr.esiea.pokejava.model.monster;
 
+import fr.esiea.pokejava.model.state.State;
+
 public abstract class Monster {
 
     private String name;
@@ -11,6 +13,8 @@ public abstract class Monster {
     private int defense;
 
     private int speed;
+
+    private State status;
 
     public Monster(String name, int hp, int attack, int defense, int speed){
         this.name = name;
