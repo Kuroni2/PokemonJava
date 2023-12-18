@@ -23,4 +23,8 @@ public class InsectMonster extends NatureMonster{
     public boolean isSameType(Attack attack){
         return attack instanceof InsectAttack;
     }
+    @Override
+    public String getType() {
+        return "Insecte";
+    }
 }

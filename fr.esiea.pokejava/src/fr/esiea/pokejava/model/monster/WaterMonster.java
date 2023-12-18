@@ -29,4 +29,8 @@ public class WaterMonster extends Monster{
     public boolean isSameType(Attack attack){
         return attack instanceof WaterAttack;
     }
+    @Override
+    public String getType() {
+        return "Eau";
+    }
 }

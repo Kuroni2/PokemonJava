@@ -22,4 +22,8 @@ public class ElectrikMonster  extends Monster{
     public boolean isSameType(Attack attack){
         return attack instanceof ElectricAttack;
     }
+    @Override
+    public String getType() {
+        return "Electrique";
+    }
 }

@@ -81,11 +81,15 @@ public class Player {
         System.out.println("Pour annuler taper 'cancel'");
         String result = sc.nextLine();
         if(!result.equals("cancel")){
+            while(!team.containsKey(result)){
+                System.out.println("Ce pokémon n'est pas dans votre équipe...");
+                result = sc.nextLine();
+            }
             currentMonster = team.get(result);
             System.out.println("Joueur" + number + " a changé de monstre.");
 
         }else{
-            System.out.println("Joueur" + number + " a changé de monstre.");
+            System.out.println("Vous avez annulé.");
 
         }
     }

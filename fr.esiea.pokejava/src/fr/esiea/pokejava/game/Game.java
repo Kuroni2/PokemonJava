@@ -97,7 +97,7 @@ public class Game {
                     System.out.println(attack);
                 }
             }
-            while(monster.getAttacks().size() != 4){
+            while(monster.getAttacks().size() != 1){
                 String attackName = sc.nextLine();
                 while(!attacks.containsKey(attackName)){
                     System.out.println("Hmmm... Il semblerait que cette attaque n'existe pas ou n'est pas dans la liste...");
@@ -173,7 +173,7 @@ public class Game {
     }
 
     public static void action(Player player, Scanner scanner){
-        System.out.println("\n Joueur" + player1.getNumber() + ", choisissez une action :");
+        System.out.println("\nJoueur " + player1.getNumber() + ", choisissez une action :");
         System.out.println("1. Changer de monstre");
         System.out.println("2. Utiliser un objet");
         System.out.println("3. Attaquer");
@@ -181,7 +181,7 @@ public class Game {
 
         switch (choice) {
             case 1:
-                player1.switchMonster( scanner);
+                player1.switchMonster(scanner);
                 break;
             case 2:
                 useObjects(player1, scanner);
@@ -198,24 +198,24 @@ public class Game {
 
     static double calculateDamage(Monster attacker, Monster defender) {
         double coefficient = Math.random() * (1.0 - 0.85) + 0.85; // Coefficient aléatoire entre 0.85 et 1.0
-        double effectiveness = getEffectiveness(attacker.type, defender.type);
+        double effectiveness = getEffectiveness(attacker, defender);
 
         // Formule des dégâts
-        double damage = 20.0 * (attacker.attack / defender.defense()) * coefficient * effectiveness;
+        double damage = 20.0 * (attacker.getAttack() / defender.getDefense()) * coefficient * effectiveness;
 
         // Vérifier si le défenseur a une faiblesse ou une résistance
         if (effectiveness > 1.0) {
-            System.out.println(defender.name + " est faible contre " + attacker.type + "! Dégâts doublés.");
+            System.out.println(defender.getName() + " est faible contre " + attacker.getType() + "! Dégâts doublés.");
             damage *= 2.0; // Double les dégâts en cas de faiblesse
         } else if (effectiveness < 1.0) {
-            System.out.println(defender.name + " résiste à " + attacker.type + ". Dégâts réduits de moitié.");
+            System.out.println(defender.getName() + " résiste à " + attacker.getType() + ". Dégâts réduits de moitié.");
             damage /= 2.0; // Réduit les dégâts de moitié en cas de résistance
         }
 
         return damage;
     }
 
-    static double getEffectiveness(String attackerType, String defenderType) {
+    static double getEffectiveness(Monster attackerType, Monster defenderType) {
         // Logique pour déterminer l'efficacité en fonction des types
         // Cette logique doit être remplacée par votre propre système de types
         // Retourne 1.0 par défaut (pas d'avantage ni de désavantage)

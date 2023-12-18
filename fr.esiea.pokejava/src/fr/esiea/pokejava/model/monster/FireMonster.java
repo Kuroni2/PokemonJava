@@ -27,4 +27,8 @@ public class FireMonster extends Monster{
     public boolean isSameType(Attack attack){
         return attack instanceof FireAttack;
     }
+    @Override
+    public String getType() {
+        return "Feu";
+    }
 }

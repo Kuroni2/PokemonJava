@@ -25,5 +25,10 @@ public class EarthMonster  extends Monster{
         return attack instanceof EarthAttack;
     }
 
+    @Override
+    public String getType() {
+        return "Sol";
+    }
+
 
 }

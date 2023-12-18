@@ -25,5 +25,9 @@ public class NatureMonster  extends Monster{
     public boolean isSameType(Attack attack) {
         return false;
     }
+    @Override
+    public String getType() {
+        return null;
+    }
 
 }

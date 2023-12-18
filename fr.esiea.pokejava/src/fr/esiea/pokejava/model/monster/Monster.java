@@ -135,6 +135,7 @@ public abstract class Monster {
         return result;
     }
     public abstract boolean isSameType(Attack attack);
+    public abstract String getType();
 
     public Map<String,Attack> getAttacks() {
         return attacks;
