@@ -29,7 +29,7 @@ public abstract class Attack {
     public void setName(String name) {
         this.name = name;
     }
-
+    
     public int getPower() {
         return power;
     }
