@@ -9,4 +9,14 @@ public class EarthAttack extends Attack{
     public  EarthAttack(Map<String,String> data){
         super(data);
     }
+    public EarthAttack(EarthAttack attack){
+        super(attack.getName(),attack.getPower(),attack.getNbUse(),attack.getFail());
+    }
+
+    @Override
+    public String toString() {
+       String result = super.toString();
+       result += "Type : Sol";
+        return result;
+    }
 }

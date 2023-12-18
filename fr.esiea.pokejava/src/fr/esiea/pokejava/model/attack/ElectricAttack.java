@@ -9,4 +9,13 @@ public class ElectricAttack extends Attack{
     public ElectricAttack(Map<String,String> data){
         super(data);
     }
+    public ElectricAttack(ElectricAttack attack){
+        super(attack.getName(),attack.getPower(),attack.getNbUse(),attack.getFail());
+    }
+    @Override
+    public String toString() {
+        String result = super.toString();
+        result += "Type : Electrique";
+        return result;
+    }
 }

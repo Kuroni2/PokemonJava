@@ -9,4 +9,13 @@ public class PlantAttack extends Attack{
     public  PlantAttack(Map<String,String> data){
         super(data);
     }
+    public PlantAttack(PlantAttack attack){
+        super(attack.getName(),attack.getPower(),attack.getNbUse(),attack.getFail());
+    }
+    @Override
+    public String toString() {
+        String result = super.toString();
+        result += "Type : Plante";
+        return result;
+    }
 }

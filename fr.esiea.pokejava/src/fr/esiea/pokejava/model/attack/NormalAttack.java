@@ -9,4 +9,13 @@ public class NormalAttack extends Attack{
     public NormalAttack(Map<String,String> data){
         super(data);
     }
+    public NormalAttack(NormalAttack attack){
+        super(attack.getName(),attack.getPower(),attack.getNbUse(),attack.getFail());
+    }
+    @Override
+    public String toString() {
+        String result = super.toString();
+        result += "Type : Normal";
+        return result;
+    }
 }

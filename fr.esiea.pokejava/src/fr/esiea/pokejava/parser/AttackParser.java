@@ -11,9 +11,7 @@ import java.util.Map;
 
 public class AttackParser {
     public void parse() {
-        String userDir = System.getProperty("user.dir");
-        System.out.println(userDir);
-        try (BufferedReader br = new BufferedReader(new FileReader("fr.esiea.pokejava/config/attack.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("fr.esiea.pokejava/config/attack"))) {
             String line;
             while ((line = br.readLine()) != null) {
                 if (line.startsWith("Attack")) {

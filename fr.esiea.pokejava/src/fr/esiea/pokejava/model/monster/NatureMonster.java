@@ -1,5 +1,8 @@
 package fr.esiea.pokejava.model.monster;
 
+import fr.esiea.pokejava.model.attack.Attack;
+import fr.esiea.pokejava.model.attack.ElectricAttack;
+
 import java.util.Map;
 
 public class NatureMonster  extends Monster{
@@ -17,4 +20,10 @@ public class NatureMonster  extends Monster{
         super(data);
         this.heal = Double.parseDouble(data.get("Heal"));
     }
+
+    @Override
+    public boolean isSameType(Attack attack) {
+        return false;
+    }
+
 }

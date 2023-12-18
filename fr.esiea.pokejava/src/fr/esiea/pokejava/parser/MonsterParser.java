@@ -11,8 +11,6 @@ import java.util.Map;
 
 public class MonsterParser {
     public void parse() {
-        String userDir = System.getProperty("user.dir");
-        System.out.println(userDir);
         try (BufferedReader br = new BufferedReader(new FileReader("fr.esiea.pokejava/config/pokemon.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {

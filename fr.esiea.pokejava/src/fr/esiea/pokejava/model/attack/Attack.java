@@ -54,4 +54,10 @@ public abstract class Attack {
         this.fail = fail;
     }
 
+    @Override
+    public String toString() {
+        String result = "";
+        result += "Attaque : " + name +"\n";
+        return result;
+    }
 }

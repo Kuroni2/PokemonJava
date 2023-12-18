@@ -9,4 +9,13 @@ public class WaterAttack extends Attack{
     public  WaterAttack(Map<String,String> data){
         super(data);
     }
+    public WaterAttack(WaterAttack attack){
+        super(attack.getName(),attack.getPower(),attack.getNbUse(),attack.getFail());
+    }
+    @Override
+    public String toString() {
+        String result = super.toString();
+        result += "Type : Eau";
+        return result;
+    }
 }

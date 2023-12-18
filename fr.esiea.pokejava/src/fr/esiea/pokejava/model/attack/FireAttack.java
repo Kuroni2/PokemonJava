@@ -9,4 +9,13 @@ public class FireAttack extends Attack{
     public FireAttack(Map<String,String> data){
         super(data);
     }
+    public FireAttack(FireAttack attack){
+        super(attack.getName(),attack.getPower(),attack.getNbUse(),attack.getFail());
+    }
+    @Override
+    public String toString() {
+        String result = super.toString();
+        result += "Type : Feu";
+        return result;
+    }
 }

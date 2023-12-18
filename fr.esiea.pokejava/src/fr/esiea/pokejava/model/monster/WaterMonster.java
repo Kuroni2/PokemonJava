@@ -1,5 +1,9 @@
 package fr.esiea.pokejava.model.monster;
 
+import fr.esiea.pokejava.model.attack.Attack;
+import fr.esiea.pokejava.model.attack.ElectricAttack;
+import fr.esiea.pokejava.model.attack.WaterAttack;
+
 import java.util.Map;
 
 public class WaterMonster extends Monster{
@@ -21,5 +25,8 @@ public class WaterMonster extends Monster{
         super(data);
         this.flood = Double.parseDouble(data.get("Flood"));
         this.fall = Double.parseDouble(data.get("Fall"));
+    }
+    public boolean isSameType(Attack attack){
+        return attack instanceof WaterAttack;
     }
 }

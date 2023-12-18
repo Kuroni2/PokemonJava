@@ -1,5 +1,9 @@
 package fr.esiea.pokejava.model.monster;
 
+import fr.esiea.pokejava.model.attack.Attack;
+import fr.esiea.pokejava.model.attack.EarthAttack;
+import fr.esiea.pokejava.model.attack.ElectricAttack;
+
 import java.util.Map;
 
 public class EarthMonster  extends Monster{
@@ -16,6 +20,9 @@ public class EarthMonster  extends Monster{
     public EarthMonster(Map<String,String> data){
         super(data);
         this.hide = Double.parseDouble(data.get("Hide"));
+    }
+    public boolean isSameType(Attack attack){
+        return attack instanceof EarthAttack;
     }
 
 

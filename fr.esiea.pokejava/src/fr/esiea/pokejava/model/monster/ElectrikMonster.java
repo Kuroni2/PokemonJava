@@ -1,5 +1,8 @@
 package fr.esiea.pokejava.model.monster;
 
+import fr.esiea.pokejava.model.attack.Attack;
+import fr.esiea.pokejava.model.attack.ElectricAttack;
+
 import java.util.Map;
 
 public class ElectrikMonster  extends Monster{
@@ -15,5 +18,8 @@ public class ElectrikMonster  extends Monster{
     public ElectrikMonster(Map<String,String> data){
         super(data);
         this.paralysis = Double.parseDouble(data.get("Paralysis"));
+    }
+    public boolean isSameType(Attack attack){
+        return attack instanceof ElectricAttack;
     }
 }

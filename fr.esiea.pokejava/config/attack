@@ -12,3 +12,31 @@ Power 35
 NbUse 15
 Fail 0.03
 EndAttack
+Attack
+Name Flameche
+Type Fire
+Power 35
+NbUse 15
+Fail 0.03
+EndAttack
+Attack
+Name Vive-Attaque
+Type Normal
+Power 35
+NbUse 15
+Fail 0.03
+EndAttack
+Attack
+Name Tranche
+Type Normal
+Power 35
+NbUse 15
+Fail 0.03
+EndAttack
+Attack
+Name Souplesse
+Type Normal
+Power 35
+NbUse 15
+Fail 0.03
+EndAttack

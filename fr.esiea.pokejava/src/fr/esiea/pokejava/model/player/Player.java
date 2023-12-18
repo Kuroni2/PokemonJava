@@ -6,9 +6,12 @@ import fr.esiea.pokejava.model.objects.Items;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
+import java.util.Scanner;
 
 public class Player {
     private int number;
+
+    private Monster currentMonster;
     private HashMap<String,Monster> team;
     private List<Items> bag;
 
@@ -66,5 +69,24 @@ public class Player {
             }
         }
         return true;
+    }
+    public void switchMonster(Scanner sc) {
+        System.out.println("Choisissez dans votre équipe : ");
+        for (Monster poke:
+             team.values()) {
+            if(poke != currentMonster){
+                System.out.println(poke);
+            }
+        }
+        System.out.println("Pour annuler taper 'cancel'");
+        String result = sc.nextLine();
+        if(!result.equals("cancel")){
+            currentMonster = team.get(result);
+            System.out.println("Joueur" + number + " a changé de monstre.");
+
+        }else{
+            System.out.println("Joueur" + number + " a changé de monstre.");
+
+        }
     }
 }
