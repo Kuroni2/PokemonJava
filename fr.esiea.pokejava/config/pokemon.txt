@@ -2,28 +2,178 @@ Monster
 Name Pikachu
 Type Electric
 HP 110 141
-Speed 110 141
-Attack 75 106
+Speed 150 200
+Attack 75 82
 Defense 50 82
 Paralysis 0.2
 EndMonster
 Monster
-Name Cerapuca
-Type Water
-HP 119 150
-Attack 68 99
-Speed 63 94
-Defense 85 116
-Flood 0.25
-Fall 0.35
+Name Volcarona
+Type Fire
+HP 100 130
+Speed 80 87
+Attack 100 120
+Defense 52 72
+Burn 0.65
 EndMonster
 Monster
-Name Bulbizarre
+Name Ariados
+Type Insect
+HP 86 108
+Speed 175 220
+Attack 80 100
+Defense 40 60
+Poison 1
+Heal 0.5
+EndMonster
+Monster
+Name Incineroar
+Type Fire
+HP 120 141
+Speed 59 81
+Attack 105 131
+Defense 78 99
+Burn 0.4
+EndMonster
+Monster
+Name Vaporeon
+Type Water
+HP 155 170
+Speed 35 55
+Attack 65 100
+Defense 78 105
+Fall 0.2
+Flood 0.1
+EndMonster
+Monster
+Name Charizard
+Type Fire
+HP 78 101
+Speed 100 142
+Attack 84 109
+Defense 78 101
+Burn 0.4
+EndMonster
+Monster
+Name Jolteon
+Type Electric
+HP 68 104
+Speed 155 182
+Attack 70 101
+Defense 55 65
+Paralysis 0.5
+EndMonster
+Monster
+Name Torterra
 Type Plant
-HP 120 152
-Speed 58 106
-Attack 62 101
-Defense 62 101
-Heal 0.10
-HealStatus 0.10
+HP 95 126
+Speed 32 55
+Attack 109 132
+Defense 95 131
+HealStatus 0.56
+Heal 0.65
+EndMonster
+Monster
+Name Infernape
+Type Fire
+HP 70 87
+Speed 112 130
+Attack 140 165
+Defense 32 45
+Burn 0.1
+EndMonster
+Monster
+Name Dondozo
+Type Water
+HP 200 271
+Speed 5 12
+Attack 20 30
+Defense 65 81
+Fall 0.15
+Flood 0.05
+EndMonster
+Monster
+Name Graveler
+Type Earth
+HP 120 131
+Speed 26 41
+Attack 70 85
+Defense 62 105
+Hide 0.2
+EndMonster
+Monster
+Name Steelix
+Type Earth
+HP 102 126
+Speed 15 35
+Attack 65 71
+Defense 85 120
+Hide 0.1
+EndMonster
+Monster
+Name Heracross
+Type Insect
+HP 89 101
+Speed 70 85
+Attack 115 131
+Defense 63 80
+Poison 0.25
+Heal 0.63
+EndMonster
+Monster
+Name Celebi
+Type Plant
+HP 100 110
+Speed 100 120
+Attack 85 95
+Defense 80 90
+HealStatus 0.8
+Heal 0.85
+EndMonster
+Monster
+Name Azumarill
+Type Water
+HP 100 110
+Speed 50 100
+Attack 50 150
+Defense 80 110
+Fall 0.2
+Flood 0.7
+EndMonster
+Monster
+Name Shuckle
+Type Earth
+HP 30 40
+Speed 5 10
+Attack 10 20
+Defense 550 650
+Hide 0.15
+EndMonster
+Monster
+Name Cinderace
+Type Fire
+HP 80 100
+Speed 119 140
+Attack 109 121
+Defense 51 65
+Burn 0.33
+EndMonster
+Monster
+Name Regieleki
+Type Electric
+HP 55 100
+Speed 200 350
+Attack 55 80
+Defense 30 52
+Paralysis 0.2
+EndMonster
+Monster
+Name Empoleon
+Type Water
+HP 84 100
+Speed 60 84
+Attack 86 98
+Defense 88 110
+Fall 0.3
+Flood 0.3
 EndMonster

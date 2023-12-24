@@ -1,31 +1,35 @@
 Attack
-Name Eclair
+Name Tonnerre
 Type Electric
 Power 40
 NbUse 10
 Fail 0.07
 EndAttack
+
 Attack
-Name Charge
-Type Normal
+Name Décharge
+Type Electric
 Power 35
 NbUse 15
-Fail 0.03
+Fail 0.05
 EndAttack
+
 Attack
-Name Flameche
+Name Flammèche
 Type Fire
 Power 35
 NbUse 15
 Fail 0.03
 EndAttack
+
 Attack
-Name Vive-Attaque
+Name Charge
 Type Normal
-Power 100
-NbUse 15
-Fail 0.03
+Power 40
+NbUse 12
+Fail 0.1
 EndAttack
+
 Attack
 Name Tranche
 Type Normal
@@ -33,10 +37,115 @@ Power 35
 NbUse 15
 Fail 0.03
 EndAttack
+
 Attack
 Name Souplesse
 Type Normal
 Power 35
 NbUse 15
 Fail 0.03
+EndAttack
+
+Attack
+Name Torrent
+Type Water
+Power 50
+NbUse 10
+Fail 0.05
+EndAttack
+
+Attack
+Name Brulure
+Type Fire
+Power 40
+NbUse 12
+Fail 0.1
+EndAttack
+
+Attack
+Name Picoter
+Type Insect
+Power 30
+NbUse 20
+Fail 0.08
+EndAttack
+
+Attack
+Name FouetLianes
+Type Plant
+Power 45
+NbUse 10
+Fail 0.08
+EndAttack
+
+Attack
+Name Sismique
+Type Earth
+Power 55
+NbUse 8
+Fail 0.12
+EndAttack
+
+Attack
+Name Geyser
+Type Water
+Power 50
+NbUse 10
+Fail 0.05
+EndAttack
+
+Attack
+Name Fulgurance
+Type Electric
+Power 45
+NbUse 12
+Fail 0.07
+EndAttack
+
+Attack
+Name CoupdeVent
+Type Normal
+Power 30
+NbUse 20
+Fail 0.05
+EndAttack
+
+Attack
+Name Ecrasement
+Type Ground
+Power 60
+NbUse 8
+Fail 0.1
+EndAttack
+
+Attack
+Name FouetdeFeuilles
+Type Plant
+Power 40
+NbUse 15
+Fail 0.06
+EndAttack
+
+Attack
+Name Piqûre
+Type Insect
+Power 35
+NbUse 15
+Fail 0.08
+EndAttack
+
+Attack
+Name RazdeMaree
+Type Water
+Power 55
+NbUse 8
+Fail 0.1
+EndAttack
+
+Attack
+Name Deflagration
+Type Fire
+Power 50
+NbUse 10
+Fail 0.07
 EndAttack
