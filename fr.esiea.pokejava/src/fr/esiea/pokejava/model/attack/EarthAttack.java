@@ -19,4 +19,8 @@ public class EarthAttack extends Attack{
        result += "Type : Sol";
         return result;
     }
+    @Override
+    public String getType() {
+        return "Sol";
+    }
 }

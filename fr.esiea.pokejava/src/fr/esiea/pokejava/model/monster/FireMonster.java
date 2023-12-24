@@ -31,4 +31,5 @@ public class FireMonster extends Monster{
     public String getType() {
         return "Feu";
     }
+
 }

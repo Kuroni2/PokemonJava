@@ -18,4 +18,8 @@ public class FireAttack extends Attack{
         result += "Type : Feu";
         return result;
     }
+    @Override
+    public String getType() {
+        return "Feu";
+    }
 }

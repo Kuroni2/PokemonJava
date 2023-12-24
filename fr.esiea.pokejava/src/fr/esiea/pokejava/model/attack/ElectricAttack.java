@@ -18,4 +18,8 @@ public class ElectricAttack extends Attack{
         result += "Type : Electrique";
         return result;
     }
+    @Override
+    public String getType() {
+        return "Electrique";
+    }
 }

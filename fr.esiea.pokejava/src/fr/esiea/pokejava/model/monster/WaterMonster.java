@@ -33,4 +33,6 @@ public class WaterMonster extends Monster{
     public String getType() {
         return "Eau";
     }
+
+
 }

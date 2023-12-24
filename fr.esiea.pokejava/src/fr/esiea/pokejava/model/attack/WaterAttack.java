@@ -18,4 +18,8 @@ public class WaterAttack extends Attack{
         result += "Type : Eau";
         return result;
     }
+    @Override
+    public String getType() {
+        return "Water";
+    }
 }

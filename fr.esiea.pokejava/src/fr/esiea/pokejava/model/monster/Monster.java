@@ -32,6 +32,7 @@ public abstract class Monster {
 
     private State status;
 
+
     public Monster(String name, int hp, int attack, int defense, int speed){
         this.name = name;
         this.hp = hp;
@@ -140,4 +141,5 @@ public abstract class Monster {
     public Map<String,Attack> getAttacks() {
         return attacks;
     }
+
 }

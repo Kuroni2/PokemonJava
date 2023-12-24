@@ -18,4 +18,8 @@ public class NormalAttack extends Attack{
         result += "Type : Normal";
         return result;
     }
+    @Override
+    public String getType() {
+        return "Normal";
+    }
 }

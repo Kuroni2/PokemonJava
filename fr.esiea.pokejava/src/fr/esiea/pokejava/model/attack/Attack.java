@@ -60,4 +60,6 @@ public abstract class Attack {
         result += "Attaque : " + name +"\n";
         return result;
     }
+    public abstract String getType();
+
 }

@@ -22,7 +22,7 @@ EndAttack
 Attack
 Name Vive-Attaque
 Type Normal
-Power 35
+Power 100
 NbUse 15
 Fail 0.03
 EndAttack

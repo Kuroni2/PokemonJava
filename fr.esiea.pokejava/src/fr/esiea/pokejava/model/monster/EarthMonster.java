@@ -9,6 +9,8 @@ import java.util.Map;
 public class EarthMonster  extends Monster{
 
     private double hide;
+
+    private Attack weakness;
     public EarthMonster(String name, int hp, int attack, int defense, int speed,double hide) {
         super(name, hp, attack, defense, speed);
         this.hide = hide;
@@ -29,6 +31,8 @@ public class EarthMonster  extends Monster{
     public String getType() {
         return "Sol";
     }
+
+
 
 
 }

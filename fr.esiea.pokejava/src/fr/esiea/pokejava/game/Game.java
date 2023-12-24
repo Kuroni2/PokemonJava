@@ -6,9 +6,7 @@ import fr.esiea.pokejava.model.player.Player;
 import fr.esiea.pokejava.parser.AttackParser;
 import fr.esiea.pokejava.parser.MonsterParser;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Scanner;
+import java.util.*;
 
 public class Game {
     public static Player player1 = new Player(1,new HashMap<>(),new ArrayList<>());
@@ -21,6 +19,29 @@ public class Game {
 
     private static final MonsterParser mParser = new MonsterParser();
     private static final AttackParser aParser = new AttackParser();
+
+    private static final Scanner sc = new Scanner(System.in);
+
+    public static final Map<String, List<String>> mapWeakness = new HashMap<>(){
+        {
+            put("Sol",new ArrayList<>(){{add("Plante");add("Insecte");}});
+            put("Feu",new ArrayList<>(){{add("Eau");}});
+            put("Electrique",new ArrayList<>(){{add("Sol");}});
+            put("Eau",new ArrayList<>(){{add("Electrique");}});
+            put("Plante",new ArrayList<>(){{add("Feu");}});
+            put("Insecte",new ArrayList<>(){{add("Feu");}});
+        }
+    };
+    public static final Map<String, List<String>> mapEffectiveness = new HashMap<>(){
+        {
+            put("Sol",new ArrayList<>(){{add("Electrique");}});
+            put("Feu",new ArrayList<>(){{add("Plante");add("Insecte");}});
+            put("Electrique",new ArrayList<>(){{add("Eau");}});
+            put("Eau",new ArrayList<>(){{add("Feu");}});
+            put("Plante",new ArrayList<>(){{add("Sol");}});
+            put("Insecte",new ArrayList<>(){{add("Sol");}});
+        }
+    };
 
     public static void main(String[] args) {
         String userDir = System.getProperty("user.dir");
@@ -49,7 +70,6 @@ public class Game {
 
     public static void selectTeam(Player player){
 
-        Scanner sc = new Scanner(System.in);
         System.out.println("Joueur " + player.getNumber()+" vous devez choisir votre équipe. ");
         System.out.println("Vous pouvez choisir des pokémons dans cette liste (pas de doublon) :");
         for (String name :
@@ -71,24 +91,42 @@ public class Game {
 
             if(pokemon instanceof EarthMonster){
                 player.getTeam().put(pokeName, new EarthMonster((EarthMonster) pokemon));
+                if(player.getTeam().size()==1){
+                    player.setCurrentMonster(player.getTeam().get(pokeName));
+                }
             }else if(pokemon instanceof FireMonster){
                 player.getTeam().put(pokeName, new FireMonster((FireMonster) pokemon));
+                if(player.getTeam().size()==1){
+                    player.setCurrentMonster(player.getTeam().get(pokeName));
+                }
             }else if(pokemon instanceof WaterMonster){
                 player.getTeam().put(pokeName, new WaterMonster((WaterMonster) pokemon));
+                if(player.getTeam().size()==1){
+                    player.setCurrentMonster(player.getTeam().get(pokeName));
+                }
             }else if(pokemon instanceof ElectrikMonster){
                 player.getTeam().put(pokeName, new ElectrikMonster((ElectrikMonster) pokemon));
+                if(player.getTeam().size()==1){
+                    player.setCurrentMonster(player.getTeam().get(pokeName));
+                }
             }else if(pokemon instanceof PlantMonster){
                 player.getTeam().put(pokeName, new PlantMonster((PlantMonster) pokemon));
+                if(player.getTeam().size()==1){
+                    player.setCurrentMonster(player.getTeam().get(pokeName));
+                }
             }else if(pokemon instanceof InsectMonster){
-                player.getTeam().put(pokeName, new InsectMonster((InsectMonster) pokemon));
-            }
-            player.displayMonsters();
 
-        }
+                player.getTeam().put(pokeName, new InsectMonster((InsectMonster) pokemon));
+                if(player.getTeam().size()==1){
+                    player.setCurrentMonster(player.getTeam().get(pokeName));
+                }
+            }
+           // player.displayMonsters();
+
+        };
 
     }
     public static void selectAttack(Player player){
-        Scanner sc = new Scanner(System.in);
         System.out.println("Très bien, maintenant tu dois choisir les attaques de tes pokémons tu as le choix parmi celle-ci : ");
         for (Monster monster : player.getTeam().values()){
             System.out.println("Allez choisi les attaques de ton " + monster.getName());
@@ -97,7 +135,7 @@ public class Game {
                     System.out.println(attack);
                 }
             }
-            while(monster.getAttacks().size() != 1){
+            while(monster.getAttacks().size() != 4){
                 String attackName = sc.nextLine();
                 while(!attacks.containsKey(attackName)){
                     System.out.println("Hmmm... Il semblerait que cette attaque n'existe pas ou n'est pas dans la liste...");
@@ -131,24 +169,15 @@ public class Game {
     }
     public static void battle(){
 
-        Scanner scanner = new Scanner(System.in);
         // Début du combat
         while (!player1.isDefeated() && !player2.isDefeated()) {
             // Affichage des options et prise de décision du joueur 1
-            action(currentPlayer,scanner);
-            // Laisser un peu de temps pour afficher les résultats avant de passer au tour suivant
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            turn(player1);
+            turn(player2);
+            resolve();
+            player1.displayCurrentMonster();
+            player2.displayCurrentMonster();
 
-            // Échange des rôles (joueur 2 agit)
-            if(currentPlayer == player1){
-                currentPlayer = player2;
-            }else{
-                currentPlayer = player1;
-            }
         }
 
         // Affichage du résultat du combat
@@ -162,7 +191,7 @@ public class Game {
     }
 
 
-    public static void useObjects(Player player, Scanner scanner) {
+    public static void useObjects(Player player) {
         // Logique d'utilisation d'un objet
         System.out.println("Joueur" + player.getNumber() + " a utilisé un objet.");
     }
@@ -172,22 +201,32 @@ public class Game {
         System.out.println("Joueur" + player.getNumber() + " a attaqué le joueur " +opponent.getNumber() + ".");
     }
 
-    public static void action(Player player, Scanner scanner){
-        System.out.println("\nJoueur " + player1.getNumber() + ", choisissez une action :");
+    public static void action(Player player){
+        System.out.println("\nJoueur " + player.getNumber() + ", choisissez une action :");
         System.out.println("1. Changer de monstre");
         System.out.println("2. Utiliser un objet");
         System.out.println("3. Attaquer");
-        int choice = scanner.nextInt();
+        int choice = sc.nextInt();
 
         switch (choice) {
             case 1:
-                player1.switchMonster(scanner);
+                player.switchMonster();
                 break;
             case 2:
-                useObjects(player1, scanner);
+                useObjects(player);
                 break;
             case 3:
-                attack(player1, player2);
+                System.out.println("Choisis ta prochaine attaque : ");
+                for (Attack attack : player.getCurrentMonster().getAttacks().values()){
+                    System.out.println(attack.toString());
+                }
+                String choosedAttack = sc.next();
+                while(!player.getCurrentMonster().getAttacks().containsKey(choosedAttack)){
+                    System.out.println("Cette attaque n'est pas dans la liste d'attaques de votre pokémon...");
+                    choosedAttack = sc.nextLine();
+                }
+                player.setNextMove(player.getCurrentMonster().getAttacks().get(choosedAttack));
+                player.setAttackNextMove(true);
                 break;
             default:
                 System.out.println("Choix invalide. Réessayez.");
@@ -196,30 +235,60 @@ public class Game {
 
     }
 
-    static double calculateDamage(Monster attacker, Monster defender) {
-        double coefficient = Math.random() * (1.0 - 0.85) + 0.85; // Coefficient aléatoire entre 0.85 et 1.0
-        double effectiveness = getEffectiveness(attacker, defender);
 
-        // Formule des dégâts
-        double damage = 20.0 * (attacker.getAttack() / defender.getDefense()) * coefficient * effectiveness;
+    public static void turn(Player player){
+        action(player);
+    }
+    public static void resolve(){
+        Monster poke1 = player1.getCurrentMonster();
+        Monster poke2 = player2.getCurrentMonster();
+        if(player1.getAttackNextMove() && player2.getAttackNextMove()){
+            if(poke1.getSpeed() > poke2.getSpeed()){
+                player1.attack(player2);
+                if(player2.getCurrentMonster().getHp() > 0){
+                    player2.attack(player1);
+                }else{
+                    for (Monster poke : player2.getTeam().values()){
+                        if(poke.getHp() > 0){
+                            player2.setCurrentMonster(poke);
+                        }
+                    }
 
-        // Vérifier si le défenseur a une faiblesse ou une résistance
-        if (effectiveness > 1.0) {
-            System.out.println(defender.getName() + " est faible contre " + attacker.getType() + "! Dégâts doublés.");
-            damage *= 2.0; // Double les dégâts en cas de faiblesse
-        } else if (effectiveness < 1.0) {
-            System.out.println(defender.getName() + " résiste à " + attacker.getType() + ". Dégâts réduits de moitié.");
-            damage /= 2.0; // Réduit les dégâts de moitié en cas de résistance
+                }
+            }
+            if(poke1.getSpeed() < poke2.getSpeed()){
+                player2.attack(player1);
+                if(player1.getCurrentMonster().getHp() > 0){
+                    player1.attack(player2);
+                }else{
+                    for (Monster poke : player1.getTeam().values()){
+                        if(poke.getHp() > 0){
+                            player1.setCurrentMonster(poke);
+                        }
+                    }
+
+                }
+            }
+        }else if(player1.getAttackNextMove()){
+            player1.attack(player2);
+            if(player2.getCurrentMonster().getHp() <= 0){
+                for (Monster poke : player2.getTeam().values()){
+                    if(poke.getHp() > 0){
+                        player2.setCurrentMonster(poke);
+                    }
+                }
+            }
+        }else if(player2.getAttackNextMove()){
+            player2.attack(player1);
+            if(player1.getCurrentMonster().getHp() <= 0){
+                for (Monster poke : player1.getTeam().values()){
+                    if(poke.getHp() > 0){
+                        player1.setCurrentMonster(poke);
+                    }
+                }
+            }
         }
 
-        return damage;
-    }
-
-    static double getEffectiveness(Monster attackerType, Monster defenderType) {
-        // Logique pour déterminer l'efficacité en fonction des types
-        // Cette logique doit être remplacée par votre propre système de types
-        // Retourne 1.0 par défaut (pas d'avantage ni de désavantage)
-        return 1.0;
     }
 
 

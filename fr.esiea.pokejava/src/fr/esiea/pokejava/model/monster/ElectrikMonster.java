@@ -26,4 +26,6 @@ public class ElectrikMonster  extends Monster{
     public String getType() {
         return "Electrique";
     }
+
+
 }

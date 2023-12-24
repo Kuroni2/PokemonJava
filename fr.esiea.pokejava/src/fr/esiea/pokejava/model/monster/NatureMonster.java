@@ -30,4 +30,5 @@ public class NatureMonster  extends Monster{
         return null;
     }
 
+
 }

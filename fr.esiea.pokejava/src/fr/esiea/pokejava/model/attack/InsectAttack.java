@@ -19,4 +19,8 @@ public class InsectAttack extends Attack{
         result += "Type : Insecte";
         return result;
     }
+    @Override
+    public String getType() {
+        return "Insecte";
+    }
 }

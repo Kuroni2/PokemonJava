@@ -2,7 +2,7 @@ package fr.esiea.pokejava.model.attack;
 
 import java.util.Map;
 
-public class PlantAttack extends Attack{
+public class PlantAttack extends Attack {
     public PlantAttack(String name, int power, int nbUse, double fail) {
         super(name, power, nbUse, fail);
     }
@@ -17,5 +17,10 @@ public class PlantAttack extends Attack{
         String result = super.toString();
         result += "Type : Plante";
         return result;
+    }
+
+    @Override
+    public String getType() {
+        return "Plante";
     }
 }
